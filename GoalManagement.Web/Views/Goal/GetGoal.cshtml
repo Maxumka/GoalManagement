@@ -1,0 +1,137 @@
+﻿@model (GoalManagement.Web.Models.Goal.GoalIndexModel, List<GoalManagement.Web.Models.Goal.GoalIndexModel>)
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @ViewData["Name"]
+            </th>
+            <th>
+                @ViewData["Description"]
+            </th>
+            <th>
+                @ViewData["ArtistList"]
+            </th>
+            <th>
+                @ViewData["RegistrationDate"]
+            </th>
+            <th>
+                @ViewData["Status"]
+            </th>
+            <th>
+                @ViewData["PlannedWorkLoad"]
+            </th>
+            <th>
+                @ViewData["ActualExecutionTime"]
+            </th>
+            <th>
+                @ViewData["EndDate"]
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => Model.Item1.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.Item1.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.Item1.ArtistList)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.Item1.RegistrationDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.Item1.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.Item1.PlannedWorkLoad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.Item1.ActualExecutionTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.Item1.EndDate)
+            </td>
+            <td>
+                <a asp-controller="Goal" asp-action="Edit" asp-route-goalId="@Model.Item1.Id">@ViewData["Edit"]</a>
+                <a asp-controller="Goal" asp-action="Delete" asp-route-goalId="@Model.Item1.Id">@ViewData["Delete"]</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+@if (Model.Item2.Count != 0)
+{
+    <h2>@ViewData["GetGoalSubGoal"]</h2>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @ViewData["Name"]
+                </th>
+                <th>
+                    @ViewData["Description"]
+                </th>
+                <th>
+                    @ViewData["ArtistList"]
+                </th>
+                <th>
+                    @ViewData["RegistrationDate"]
+                </th>
+                <th>
+                    @ViewData["Status"]
+                </th>
+                <th>
+                    @ViewData["PlannedWorkLoad"]
+                </th>
+                <th>
+                    @ViewData["ActualExecutionTime"]
+                </th>
+                <th>
+                    @ViewData["EndDate"]
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Item2)
+            {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ArtistList)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RegistrationDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Status)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PlannedWorkLoad)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ActualExecutionTime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EndDate)
+                </td>
+                <td>
+                    <a asp-controller="Goal" asp-action="Edit" asp-route-goalId="@item.Id">@ViewData["Edit"]</a>
+                    <a asp-controller="Goal" asp-action="Delete" asp-route-goalId="@item.Id">@ViewData["Delete"]</a>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+}

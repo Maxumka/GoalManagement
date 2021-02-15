@@ -1,0 +1,60 @@
+﻿@model GoalManagement.Web.Models.Goal.GoalEditModel
+
+@{
+    ViewData["Title"] = ViewData["Edit"];
+}
+
+<h2>@ViewData["Edit"]</h2>
+
+<a class="btn btn-primary" asp-action="Add" asp-route-parentId="@Model.Id">@ViewData["AddSubGoal"]</a>
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group" hidden="hidden">
+                <label asp-for="Id" class="control-label"></label>
+                <input asp-for="Id" class="form-control" />
+                <span asp-validation-for="Id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label">@ViewData["Name"]</label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label">@ViewData["Description"]</label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ArtistList" class="control-label">@ViewData["ArtistList"]</label>
+                <input asp-for="ArtistList" class="form-control" />
+                <span asp-validation-for="ArtistList" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Status" class="control-label">@ViewData["Status"]</label>
+                <select class="form-control" asp-for="Status" asp-items="Html.GetEnumSelectList<GoalManagement.Domain.Entities.GoalStatus>()">
+                    <option selected="selected" value=""></option>
+                </select>
+                <span asp-validation-for="Status" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EndDate" class="control-label">@ViewData["EndDate"]</label>
+                <input asp-for="EndDate" class="form-control" />
+                <span asp-validation-for="EndDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value=@ViewData["Edit"] class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a class="btn btn-primary" asp-action="Index">@ViewData["Return"]</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

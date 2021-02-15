@@ -1,0 +1,62 @@
+﻿@model GoalManagement.Web.Models.Goal.GoalAddModel
+
+@{
+    ViewData["Title"] = "Add";
+}
+
+<h2>@ViewData["Add"]</h2>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Add">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group" hidden="hidden">
+                <label asp-for="ParentId" class="control-label"></label>
+                <input asp-for="ParentId" class="form-control" />
+                <span asp-validation-for="ParentId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label">@ViewData["Name"]</label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label">@ViewData["Description"]</label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ArtistList" class="control-label">@ViewData["ArtistList"]</label>
+                <input asp-for="ArtistList" class="form-control" />
+                <span asp-validation-for="ArtistList" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PlannedWorkLoad" class="control-label">@ViewData["PlannedWorkLoad"]</label>
+                <input asp-for="PlannedWorkLoad" class="form-control" />
+                <span asp-validation-for="PlannedWorkLoad" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ActualExecutionTime" class="control-label">@ViewData["ActualExecutionTime"]</label>
+                <input asp-for="ActualExecutionTime" class="form-control" />
+                <span asp-validation-for="ActualExecutionTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EndDate" class="control-label">@ViewData["EndDate"]</label>
+                <input asp-for="EndDate" class="form-control" />
+                <span asp-validation-for="EndDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value=@ViewData["Add"] class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a class="btn btn-primary" asp-action="Index">@ViewData["Return"]</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,51 @@
+﻿@model GoalManagement.Web.Models.Goal.GoalIndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>@ViewData["IndexHeader"]</h2>
+
+@section TreeView
+{
+    <div id="jstree"></div>
+}
+
+<a class="btn btn-primary" asp-action="Add" asp-route-parentId="@null">@ViewData["IndexAddGoal"]</a>
+
+<div id="goal"></div>
+
+@section Scripts
+{
+    <script type="text/javascript">
+        $(function ()
+        {
+            $('#jstree').on('changed.jstree', function (e, data)
+            {
+                console.log(data.selected[0])
+                $('#goal').load('@Url.Action("GetGoal", "Goal")?idItem=' + JSON.stringify(data.selected[0]))
+            })
+        })
+    </script>
+
+    <script type="text/javascript">
+        $(function ()
+        {
+            $('#jstree').jstree
+                ({
+                    "plugins": ["core", "ui"],
+                    "core":
+                    {
+                        "themes":
+                        {
+                            "theme": "default",
+                            "dots": false,
+                            "icons": false
+                        },
+                        "data": @Html.Raw(ViewBag.Json)
+                    }
+
+                });
+        });
+    </script>
+}
