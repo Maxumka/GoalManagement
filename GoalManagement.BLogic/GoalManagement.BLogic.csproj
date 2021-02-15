@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Entity\GoalManagement.Domain.csproj" />
+    <ProjectReference Include="..\GoalManagement.Domain\GoalManagement.Domain.csproj" />
   </ItemGroup>
 
 </Project>

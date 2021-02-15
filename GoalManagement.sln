@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GoalManagement.Domain", "Entity\GoalManagement.Domain.csproj", "{DDB6F0AC-4B59-4D98-8A4E-3E866C49C3AE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GoalManagement.Domain", "GoalManagement.Domain\GoalManagement.Domain.csproj", "{DDB6F0AC-4B59-4D98-8A4E-3E866C49C3AE}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{A94461B5-8F00-485B-B7BB-5E67F5942F5B}"
 EndProject
